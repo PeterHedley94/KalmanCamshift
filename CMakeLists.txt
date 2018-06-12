@@ -1,0 +1,11 @@
+set (CMAKE_CXX_STANDARD 11)
+cmake_minimum_required(VERSION 2.8)
+project( Main )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( Main main.cpp )
+target_link_libraries( Main ${OpenCV_LIBS} )
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+target_link_libraries(Main Threads::Threads)
